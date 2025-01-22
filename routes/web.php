@@ -12,4 +12,7 @@ Route::get('/about', function () {
     echo "About us";
 });
 
-Route::get('/main', [MainController::class, 'index' ]);
+/* Rota recebendo um valor. apos o nome da nossa rota ('/main) inserimos
+o /{value} e em nossos controller declaramos a variavel VALUE */
+
+Route::get('/main/{value}', [MainController::class, 'index' ]);
