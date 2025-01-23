@@ -1,18 +1,13 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Rota para autenticação
+Route::get('/login', [AuthController::class, 'login']);
 
+//Rota para receber submissão de formularios
+Route::post('/loginSubmit', [AuthController::class, 'loginSubmit']);
 
-Route::get('/about', function () {
-    echo "About us";
-});
-
-/* Rota recebendo um valor. apos o nome da nossa rota ('/main) inserimos
-o /{value} e em nossos controller declaramos a variavel VALUE */
-
-Route::get('/main/{value}', [MainController::class, 'index' ]);
+Route::get('/logout', [AuthController::class, 'logout']);
